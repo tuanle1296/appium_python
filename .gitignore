@@ -1,5 +1,4 @@
 *.iml
 *.xml
-src/__pycache__
-tests/features/steps/clock/__pycache__
 allure_result_folder
+*.pyc
