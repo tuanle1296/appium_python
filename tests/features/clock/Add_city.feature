@@ -12,3 +12,4 @@ Feature: Add city time
     | New York    |
     | Bangkok     |
     | Ho Chi Minh |
+

@@ -6,3 +6,4 @@ Feature: Set alarm
     When I click_on 'alarm_tab'
     And I set_alarm '3:15AM'
     Then I verify_alarm_set is '3:15AM'
+
