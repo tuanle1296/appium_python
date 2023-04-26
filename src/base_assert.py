@@ -1,4 +1,5 @@
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.wait import WebDriverWait
 
 
@@ -8,22 +9,19 @@ class Assert:
 
     def verify_element_on_screen(self, element):
         try:
-            WebDriverWait(self.mobile_driver, 2).until(EC.visibility_of_element_located(element))
-        except:
-            raise Exception(str(element) + " is not on page")
+            self.mobile_driver.find_element(str(element[0]), str(element[1]))
+        except NoSuchElementException:
+            assert False, "Element " + str(element) + " is not on screen"
 
     def verify_element_not_on_screen(self, element):
         try:
-            WebDriverWait(self.mobile_driver, 2).until(EC.invisibility_of_element_located(element))
-        except:
-            raise Exception(str(element) + " is on page")
-
-    # def verify_text_on_screen(self, text):
-    #     assert(text in self.mobile_driver.page_source, "No text found on page")
+            self.mobile_driver.find_element(str(element[0]), str(element[1]))
+            assert False, "Element " + str(element) + " is displaying"
+        except NoSuchElementException:
+            pass
 
     @staticmethod
     def compare_string(text1, text2):
-        if str(text1) != str(text2):
-            raise Exception("Expected: " + str(text1) + " but: " + str(text2))
+        assert text1 == text2, "Expected: " + str(text1) + " but: " + str(text2)
 
 

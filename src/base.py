@@ -57,3 +57,10 @@ class Common:
 
     def get_text(self, element):
         return WebDriverWait(self.mobile_driver, 5).until(EC.visibility_of_element_located(element)).text
+
+    @staticmethod
+    def replace_text_in_element(element, old_string, new_string):
+        string = element
+        l = list(string)
+        l[1] = l[1].replace(old_string, new_string)
+        return tuple(l)
