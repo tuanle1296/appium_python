@@ -52,8 +52,8 @@ This repo is a sample project which is created by Python using Behave BDD framew
   - Get the udid from above command
   - Run command to start appium server via terminal/CMD: appium
   - Launch Appium Inspector and add following fields:
-    - udid: value is from "adb devices" command
-    - deviceName: value is name of Android phone
+    - udid: (value is from "adb devices" command)
+    - deviceName: (value is name of Android phone)
     - platformName: Android
     - automationName: UiAutomator2
     - platformVersion: (Check Android OS version and enter value here, ex: 12)
