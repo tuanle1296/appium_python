@@ -4,9 +4,6 @@ from appium.webdriver.appium_service import AppiumService
 from appium import webdriver
 
 
-# base = Base()
-
-
 def before_all(context):
     # base.execute_shell_file("shell/start_android_emulator.sh")
     context.dc = {
