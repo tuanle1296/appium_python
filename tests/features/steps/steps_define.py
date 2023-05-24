@@ -18,6 +18,10 @@ def then_step_impl(context, method_name, result, page):
     wrapper_method(page, method_name, context.mobile_driver, result)
 
 
+# define wrapper_method to call method from class by string input
+# this will map the page param with dict and return class name
+# then will create instance for class and call method
+# With this approach we can call method directly from gherkin step then can minimise duplicate code implemented under
 def wrapper_method(page, method, driver, *args):
     global value
     mapping = {"clock_page": Clock, }
@@ -26,7 +30,8 @@ def wrapper_method(page, method, driver, *args):
     else:
         raise AssertionError("Key does not exist in the dictionary")
 
+    # create instance of class
     my_instance = value(driver)
 
-    # Specify the method name as a string
+    # call method from instance by name and args
     getattr(my_instance, method, "No method found")(*args)

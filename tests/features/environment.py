@@ -5,7 +5,6 @@ from appium import webdriver
 
 
 def before_all(context):
-    # base.execute_shell_file("shell/start_android_emulator.sh")
     context.dc = {
         'platformName': 'Android',
         'appPackage': 'com.google.android.deskclock',
@@ -38,4 +37,3 @@ def after_step(context, step):
 def after_all(context):
     context.mobile_driver.quit()
     context.service.stop()
-    # base.execute_shell_file("shell/stop_android_emulator.sh")

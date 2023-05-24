@@ -2,12 +2,14 @@ import os
 import shutil
 import subprocess
 
+
+# Optional file
+
 if __name__ == '__main__':
+    # check if results folder is existing then clean folder before test execution
     parent_dir = os.getcwd()
     report_dir = os.path.join(parent_dir, "allure_result_folder")
-    try:
-        os.mkdir(report_dir)
-    except FileExistsError:
+    if os.path.exists(report_dir):
         shutil.rmtree("allure_result_folder")
 
     """please install allure via command brew install allure (on Mac)/scoop install allure (Windows) before run runner
