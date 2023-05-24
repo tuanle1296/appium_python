@@ -1,4 +1,3 @@
-from appium.webdriver.common.mobileby import MobileBy
 from src.base import Common
 from src.base_assert import Assert
 from selenium.webdriver.common.by import By
@@ -7,8 +6,8 @@ from selenium.webdriver.common.by import By
 class Locators:
     current_title_screen = (By.XPATH, "//*[@resource-id='com.google.android.deskclock:id/action_bar_title']")
     add_city_btn = (By.XPATH, "//android.widget.Button[@content-desc='Add city']")
-    enter_city_field = (MobileBy.CLASS_NAME, "android.widget.EditText")
-    first_suggestion = (MobileBy.XPATH, "//*[@class='android.support.v7.widget.RecyclerView']//*["
+    enter_city_field = (By.CLASS_NAME, "android.widget.EditText")
+    first_suggestion = (By.XPATH, "//*[@class='android.support.v7.widget.RecyclerView']//*["
                                         "@class='android.widget.LinearLayout'][1]")
     current_city_time_zone = (By.XPATH, "//*[@resource-id='com.google.android.deskclock:id/city_name' and "
                                         "contains(@text, 'text_to_replace')]")
@@ -32,10 +31,9 @@ class Clock(Common, Assert):
     def __int__(self, mobile_driver):
         self.mobile_driver = mobile_driver
 
-    def verify_that(self, arg, text):
-        el = getattr(Locators, arg)
-        cur_text = self.get_text(el)
-        self.compare_string(cur_text, text)
+    def verify_current_App_is_running_foreground_is_Clock(self):
+        cur_App = self.get_current_foreground_app()
+        self.compare_string(cur_App, "com.google.android.deskclock")
 
     def add_city(self, city_name):
         locators = Locators

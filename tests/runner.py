@@ -13,9 +13,9 @@ if __name__ == '__main__':
     """please install allure via command brew install allure (on Mac)/scoop install allure (Windows) before run runner
     file"""
 
-    # --no-capture flag is using to log everything with print method to console during executing
+
     try:
-        create_junit_report = subprocess.run('behave --no-capture -f allure_behave.formatter:AllureFormatter '
+        create_junit_report = subprocess.run('behave -f allure_behave.formatter:AllureFormatter '
                                              '-o allure_result_folder ./tests/features'
                                              , shell=True, check=True)
     except subprocess.CalledProcessError as e:
