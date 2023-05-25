@@ -1,9 +1,8 @@
 from src.base import Common
-from src.base_assert import Assert
 from selenium.webdriver.common.by import By
 
 
-class Clock(Common, Assert):
+class Clock(Common):
     current_title_screen = (By.XPATH, "//*[@resource-id='com.google.android.deskclock:id/action_bar_title']")
     add_city_btn = (By.XPATH, "//android.widget.Button[@content-desc='Add city']")
     enter_city_field = (By.CLASS_NAME, "android.widget.EditText")
@@ -28,7 +27,7 @@ class Clock(Common, Assert):
     def __int__(self, mobile_driver):
         super().__int__(mobile_driver)
 
-    def verify_current_App_is_running_foreground_is_Clock(self):
+    def verify_current_App_running_foreground_is_Clock(self):
         cur_app = self.get_current_foreground_app()
         self.compare_string(cur_app, "com.google.android.deskclock")
 

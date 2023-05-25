@@ -1,6 +1,7 @@
 import time
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.common.exceptions import NoSuchElementException
 
 
 class Common:
@@ -35,3 +36,14 @@ class Common:
         l = list(string)
         l[1] = l[1].replace(old_string, new_string)
         return tuple(l)
+
+    def verify_element_on_screen(self, element):
+        try:
+            self.mobile_driver.find_element(str(element[0]), str(element[1]))
+        except NoSuchElementException:
+            assert False, "Element " + str(element) + " is not on screen"
+
+    @staticmethod
+    def compare_string(text1, text2):
+        assert text1 == text2, "Expected: " + str(text1) + " but: " + str(text2)
+

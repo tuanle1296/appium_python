@@ -1,5 +1,4 @@
 from behave import *
-
 from tests.features.steps.clock.clock_method import Clock
 
 

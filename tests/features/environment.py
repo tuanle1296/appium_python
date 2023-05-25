@@ -2,7 +2,6 @@ import allure
 from datetime import datetime
 from appium.webdriver.appium_service import AppiumService
 from appium import webdriver
-from behave.log_capture import capture
 
 
 def before_all(context):
