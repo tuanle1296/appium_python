@@ -23,7 +23,6 @@ def then_step_impl(context, method_name, result, page):
 # then will create instance for class and call method
 # With this approach we can call method directly from gherkin step then can minimise duplicate code implemented under
 def wrapper_method(page, method, driver, *args):
-    global value
     mapping = {"clock_page": Clock, }
     if page in mapping:
         value = mapping[page]
