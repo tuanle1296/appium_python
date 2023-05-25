@@ -44,7 +44,6 @@ class Clock(Common):
 
     def navigate_to(self, element):
         el = getattr(self, element)
-        print("Click on: " + str(el))
         self.click_element(el)
 
     def set_alarm(self, timer):
