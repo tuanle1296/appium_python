@@ -1,4 +1,4 @@
 Appium-Python-Client
 behave
 allure-behave
-selenium~=4.5.0
+selenium>=4.5.0
