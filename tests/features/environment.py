@@ -2,6 +2,7 @@ import allure
 from datetime import datetime
 from appium.webdriver.appium_service import AppiumService
 from appium import webdriver
+from behave.log_capture import capture
 
 
 def before_all(context):
@@ -26,6 +27,10 @@ def before_all(context):
 
 
 def after_step(context, step):
+    # capture printed text and log into allure report
+    stdout = context.stdout_capture.getvalue()
+    if stdout:
+        allure.attach(stdout, name=step.name, attachment_type=allure.attachment_type.TEXT)
     if step.status == 'failed':
         now = datetime.now()
         dt_string = now.strftime("%d/%m/%Y %H:%M:%S")

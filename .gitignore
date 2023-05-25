@@ -1,4 +1,4 @@
 *.iml
 *.xml
-allure_result_folder
+allure_results
 *.pyc

@@ -36,7 +36,7 @@ class Clock(Common, Assert):
         self.click_element(self.add_city_btn)
         self.input_text(self.enter_city_field, city_name)
         self.click_element(self.first_suggestion, 10)
-        print("Add city step, city name is: " + city_name)
+        print("City name is: " + city_name)
 
     def verify_result_current_city_time_zone(self, city):
         self.wait(2)
@@ -45,11 +45,11 @@ class Clock(Common, Assert):
 
     def navigate_to(self, element):
         el = getattr(self, element)
-        # print("Click on: " + str(el))
+        print("Click on: " + str(el))
         self.click_element(el)
 
     def set_alarm(self, timer):
-        # print("Alarm is: " + timer)
+        print("Alarm set is: " + timer)
         timer_split = timer.split(":")
         self.click_element(self.add_alarm_btn)
         self.click_element(self.enable_keyboard_btn)
